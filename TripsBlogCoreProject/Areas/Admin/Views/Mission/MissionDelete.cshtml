@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Mission
+@{
+    ViewData["Title"] = "MissionDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Misyon Silme</h1>
+            <p class="card-description"> Bu alan üzerinden misyonunuzu silmek istediğinize emin misiniz? </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Misyon</label>
+                    <input type="text" class="form-control" asp-for="MissionDescription" placeholder="Misyon" readonly>
+                    <span asp-validation-for="MissionDescription" class="tex-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2">Sil</button>
+                <a href="/Admin/Mission/MissionList" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+

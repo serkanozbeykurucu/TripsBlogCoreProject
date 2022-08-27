@@ -1,0 +1,87 @@
+﻿<nav id="sidebar">
+    <div class="sidebar_blog_1">
+        @*<div class="sidebar-header">
+            <div class="logo_section">
+                <a href="index.html">
+                    <img class="logo_icon img-responsive" src="~/pluto-1.0.0/images/logo/logo_icon.png" alt="#" />
+                </a>
+            </div>
+        </div>*@
+        @await Component.InvokeAsync("_AdminProfileSideBar")
+    </div>
+    <div class="sidebar_blog_2">
+        <h4>General</h4>
+        <ul class="list-unstyled components">
+            <li>
+                <a href="/Admin/Dashboard/Index/">
+                    <i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-users purple_color"></i>
+                    <span>Kullanıcılar</span>
+                </a>
+                <ul class="collapse list-unstyled" id="element">
+                    <li>
+                        <a href="/Admin/User/UserList"> <span>Kullanıcı Listeleme</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/User/UserAdd"> <span>Kullanıcı Ekleme</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#apps" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-key blue2_color"></i>
+                    <span>Yetki</span>
+                </a>
+                <ul class="collapse list-unstyled" id="apps">
+                    <li><a href="/Admin/AdminRol/Index"> <span>Yetki Görüntüleme</span></a></li>
+                    <li><a href="/Admin/AdminRol/AddRole"> <span>Yetki Ekleme</span></a></li>
+                    <li><a href="/Admin/AdminRol/UserRoleList"> <span>Kullanıcı Rol Listesi</span></a></li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href="#additional_page" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <i class="fa fa-clone yellow_color"></i>
+                    <span>Site Ayarları </span>
+                </a>
+                <ul class="collapse list-unstyled" id="additional_page">
+                    <li>
+                        <a href="/Admin/Blog/BlogList"> <span>Bloglar</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Journey/JourneyList"> <span>Geziler</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Mission/MissionList"> <span>Misyon</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Category/CategoryList"> <span>Kategori</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Story/StoryList/"> <span>Hkayemiz</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Team/TeamList"> <span>Tur Rehberleri</span></a>
+                    </li>
+                    <li>
+                        <a href="/Admin/Comment/CommentList"> <span> Blog Yorumları </span></a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="/Admin/Profile/ProfileUpdate">
+                    <i class="fa fa-cog yellow_color"></i> <span>Şifre Güncelle</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="/Default/Index">
+                    <i class="fa fa-home green_color"></i> <span>Siteye Git</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,62 @@
+﻿@model TripsBlogCoreProject.Areas.Admin.Models.BlogAddViewModel
+@{
+    ViewData["Title"] = "BlogAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-sm-11 grid-margin stretch-card my-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center"> Blog Ekleme</h1>
+                <p class="card-description"> Bu alan üzerinden blog ekleyebilirsiniz. </p>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Blog Adı</label>
+                        <input type="text" class="form-control" asp-for="BlogName" placeholder="Blog Adı">
+                        <span asp-validation-for="BlogName"class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Blog Özet</label>
+                        <input type="text" class="form-control" asp-for="BlogShortDescription" placeholder="Blog Özet">
+                        <span asp-validation-for="BlogShortDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Tarih</label>
+                        <input type="date" class="form-control" asp-for="BlogDate" placeholder="Tarih">
+                        <span asp-validation-for="BlogDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanıtım Resmi</label>
+                        <input type="file" class="form-control" asp-for="ThumbNailImage" placeholder="Tanıtım Resmi">
+                        <span asp-validation-for="ThumbNailImage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Resim</label>
+                        <input type="file" class="form-control" asp-for="Image">
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCategory">Kategori</label>
+                        @Html.DropDownListFor(x=> x.CategoryId,
+                            (List<SelectListItem>)ViewBag.Category,new {@class = "form-control"})
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" asp-for="AppUserId" placeholder="UserID" value="@ViewBag.i">
+                        <span asp-validation-for="AppUserId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Açıklama</label>
+                        <textarea class="form-control" asp-for="BlogDescription" rows="4"></textarea>
+                        <span asp-validation-for="BlogDescription" class="text-danger"></span>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <a href="/Admin/Blog/BlogList" class="btn btn-dark">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.Team
+@{
+    ViewData["Title"] = "TeamDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Tur Rehberi Bilgileri Görüntüleme Sayfası</h1>
+            <p class="card-description"> Bu alan üzerinden tur rehberinizin detaylarını görebilirsiniz. </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <img src="/@ViewBag.ImageUrl" alt="Image" class="img-fluid mb-4 rounded-circle" style="width: 260px; height:260px" >
+                </div>
+                <div class="form-group">
+                    <label>Rehber Adı</label>
+                    <input type="text" class="form-control" asp-for="FirstName" placeholder="Rehber Adı" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Rehber Soyadı</label>
+                    <input type="text" class="form-control" asp-for="LastName" placeholder="Rehber Soyadı" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Unvan</label>
+                    <input type="text" class="form-control" asp-for="Degree" placeholder="Unvan" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Özgeçmiş</label>
+                    <textarea class="form-control" asp-for="Resume" rows="4" readonly></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputCategory">Facebook Url</label>
+                    <input type="text" class="form-control" asp-for="FacebookUrl" placeholder="Facebook Url" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Instagram Url</label>
+                    <input type="text" class="form-control" asp-for="InstagramUrl" placeholder="Instagram Url" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Twitter Url</label>
+                    <input type="text" class="form-control" asp-for="TwitterUrl" placeholder="Twitter Url" readonly>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <a href="/Admin/Team/TeamUpdate/@Model.Id" class="btn btn-success">Güncelleme</a>
+                <a href="/Admin/Team/TeamList" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+

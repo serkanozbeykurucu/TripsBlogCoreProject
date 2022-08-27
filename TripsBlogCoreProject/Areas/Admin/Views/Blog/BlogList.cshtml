@@ -1,0 +1,62 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="white_shd full margin_bottom_30 my-3">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2 class="text-center"> Blog Listesi </h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Blog Adı</th>
+                        <th>Açıklama</th>
+                        <th>Tarih</th>
+                        <th>Kategori</th>
+                        <th>Durumu</th>
+                        <th>Sitede Gör</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Id</td>
+                            <td>@item.BlogName</td>
+                            <td>@item.BlogShortDescription</td>
+                            <td> @(((DateTime)item.BlogDate).ToString("dd/MM/yyyy"))</td>
+                            <td>@item.Category.CategoryName</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <a href="/Blog/BlogDetails/@item.Id" class="badge badge-primary">
+                                    Sitede Gör
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Admin/Blog/BlogUpdate/@item.Id" class="badge badge-success">
+                                    Güncelle
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Admin/Blog/BlogDelete/@item.Id" class="badge badge-danger">
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Admin/Blog/BlogAdd" class="btn btn-primary"> Blog Ekle </a>
+        </div>
+    </div>
+</div>

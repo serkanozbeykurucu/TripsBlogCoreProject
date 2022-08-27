@@ -1,0 +1,90 @@
+﻿@model TripsBlogCoreProject.Areas.Admin.Models.JourneyUpdateViewModel
+@{
+    ViewData["Title"] = "JourneyUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Gezi Güncelleme</h1>
+            <p class="card-description"> Bu alan üzerinden Gezi güncelleyebilirsiniz. </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Gezi Adı</label>
+                    <input type="text" class="form-control" asp-for="JourneyName" placeholder="Gezi Adı">
+                    <span asp-validation-for="JourneyName" class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Gezi Özet</label>
+                    <input type="text" class="form-control" asp-for="JourneyShortDescription" placeholder="Gezi Özet">
+                    <span asp-validation-for="JourneyShortDescription" class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label> Tanıtım Resmi</label>
+                    <input type="text" class="form-control" asp-for="OldThumbNailUrl" placeholder="Resim">
+                    <span asp-validation-for="OldThumbNailUrl" class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Resim</label>
+                    <input type="text" class="form-control" asp-for="OldImageUrl" placeholder="Resim">
+                    <span asp-validation-for="OldImageUrl" class="tex-danger"></span>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input type="checkbox" checked onclick="gizleGoster('sonuc','sonuc2','ImageLabel','ImageText')" class="form-check-input" />
+                    <label class="form-check-label"> Resimler Güncellensin mi? </label>
+                </div>
+                <div class="form-group">
+                    <label id="sonuc2"> Tanıtım Resmi</label>
+                    <input type="file" class="form-control" asp-for="ThumbNail" placeholder="Tanıtım Resmi" id="sonuc">
+                    <span class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label id="ImageLabel">Resim</label>
+                    <input type="file" class="form-control" asp-for="Image" placeholder="Resim" id="ImageText">
+                    <span class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="JourneyDescription" rows="4"></textarea>
+                    <span asp-validation-for="JourneyDescription" class="tex-danger"></span>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" asp-for="Status">
+                        Durum
+                    </label>
+                    <span asp-validation-for="Status" class="tex-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2 my-3">Güncelleme</button>
+                <a href="/Admin/Journey/JourneyList" class="btn btn-dark my-3">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function gizleGoster(ThumbnailLabelID, ThymbnailTextID2, ImageLabelID,ImageTextID) {
+        var secilenID = document.getElementById(ThumbnailLabelID);
+        var secilenID2 = document.getElementById(ThymbnailTextID2);
+        var secilenImageLabelID = document.getElementById(ImageLabelID);
+        var secilenImageTextID2 = document.getElementById(ImageTextID);
+        if (secilenID.style.display == "none" && secilenID2.style.display == "none"
+            && secilenImageLabelID.style.display == "none" && secilenImageTextID2.style.display == "none") {
+            secilenID.style.display = "";
+            secilenID2.style.display = "";
+            
+            secilenImageLabelID.style.display = "";
+            secilenImageTextID2.style.display = "";
+        }
+        else {
+            secilenID.style.display = "none";
+            secilenID2.style.display = "none";
+            secilenImageLabelID.style.display = "none";
+            secilenImageTextID2.style.display = "none";
+        }
+    }
+</script>

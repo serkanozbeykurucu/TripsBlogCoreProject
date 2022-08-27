@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Journey>
+<div class="site-section">
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-7">
+                <div class="heading-39101 mb-5">
+                    <span class="backdrop text-center">Seyahat</span>
+                    <span class="subtitle-39191">Seyahat</span>
+                    <h3>Yolculuğunuz Burada Başlıyor</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="listing-item">
+                        <div class="listing-image">
+                            <img src="/@item.ThumbNail" alt="Image" class="img-fluid" style="width:600px; height:300px;">
+                        </div>
+                        <div class="listing-item-content">
+                            <h2 class="mb-1">
+                                <a href="/Default/TripsDetail/@item.ID">@item.JourneyShortDescription</a>
+                            </h2>
+                            <a class="px-3 mb-3 category bg-primary" href="/Default/TripsDetail/@item.ID">@item.JourneyName</a>
+                        </div>
+                    </div>
+                </div>
+            }       
+
+        </div>
+
+    </div>
+</div>

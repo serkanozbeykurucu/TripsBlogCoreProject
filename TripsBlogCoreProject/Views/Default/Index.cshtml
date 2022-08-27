@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@await Component.InvokeAsync("_Intro")
+@await Component.InvokeAsync("_OurStory")
+@await Component.InvokeAsync("_Journey")
+@await Component.InvokeAsync("_Team")
+@await Component.InvokeAsync("_PopularBlog")
+
+<div class="site-section bg-image overlay" style="background-image: url('/trips-master/images/hero_1.jpg')">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 text-center">
+                <h2 class="font-weight-bold text-white">Gezilebilecek Yerler Hakkında Bilgi Almak İster misiniz?</h2>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus ut, doloremque quo molestiae nesciunt officiis veniam, beatae dignissimos!</p>
+                <p class="mb-0">
+                    <a href="/Default/Contact/" class="btn btn-primary text-white py-3 px-4">Bizimle İletişime Geçin!</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

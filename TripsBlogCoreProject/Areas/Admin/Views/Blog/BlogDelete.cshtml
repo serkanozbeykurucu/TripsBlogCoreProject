@@ -1,0 +1,57 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Blog Silme</h1>
+            <p class="card-description"> Bu alan üzerinden blog silebilirsiniz. </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Blog Adı</label>
+                    <input type="text" class="form-control" asp-for="BlogName" placeholder="Blog Adı" readonly>
+                    <span asp-validation-for="BlogName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Blog Özet</label>
+                    <input type="text" class="form-control" asp-for="BlogShortDescription" placeholder="Blog Özet" readonly>
+                    <span asp-validation-for="BlogShortDescription" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Tarih</label>
+                    <input type="date" class="form-control" asp-for="BlogDate" placeholder="Tarih" readonly>
+                    <span asp-validation-for="BlogDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCategory">Kategori</label>
+                    <input type="text" class="form-control" asp-for="CategoryId" placeholder="Kategori" readonly>
+                    <span asp-validation-for="Category.CategoryName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputImage">Tanıtım Resmi</label>
+                    <input type="text" class="form-control" asp-for="ThumbNail" placeholder="Tanıtım Resmi" readonly>
+                    <span asp-validation-for="ThumbNail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputImage">Resim</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl" placeholder="Resim" readonly>
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" asp-for="AppUserId" placeholder="UserID" readonly>
+                    <span asp-validation-for="AppUserId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Açıklama</label>
+                    <textarea class="form-control" asp-for="BlogDescription" rows="4" readonly></textarea>
+                    <span asp-validation-for="BlogDescription" class="text-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2">Sil</button>
+                <a href="/Admin/Blog/BlogList" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>

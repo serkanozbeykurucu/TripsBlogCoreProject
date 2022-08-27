@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.Mission
+@{
+    ViewData["Title"] = "MissionAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-sm-11 grid-margin stretch-card my-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center"> Misyon Ekleme</h1>
+                <p class="card-description"> Bu alan üzerinden misyon ekleyebilirsiniz. </p>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label>Misyon</label>
+                        <input type="text" class="form-control" asp-for="MissionDescription" placeholder="Misyon">
+                        <span asp-validation-for="MissionDescription" class="text-danger"></span>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <a href="/Admin/Mission/MissionList" class="btn btn-dark">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

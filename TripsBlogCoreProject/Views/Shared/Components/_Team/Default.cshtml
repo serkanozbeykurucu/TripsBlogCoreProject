@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Team>
+<div class="site-section">
+
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-md-10">
+                <div class="heading-39101 mb-5">
+                    <span class="backdrop text-center">Tur Rehberlerimiz</span>
+                    <span class="subtitle-39191">Deneyimli Personel</span>
+                    <h3>Tur Rehberlerimizle Tanışın</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="person-29191 text-center">
+                        <img src="/@item.ImageUrl" alt="Image" class="img-fluid mb-4" style="width: 260px; height:260px">
+
+                        <div class="px-4">
+                            <h2 class="mb-2">@item.FirstName @item.LastName</h2>
+                            <p class="caption mb-4">@item.Degree</p>
+                            <p>@item.Resume</p>
+                            <div class="social_29128 mt-5">
+                                <a href="@item.FacebookUrl">
+                                    <span class="icon-facebook"></span>
+                                </a>
+                                <a href="@item.InstagramUrl">
+                                    <span class="icon-instagram"></span>
+                                </a>
+                                <a href="@item.TwitterUrl">
+                                    <span class="icon-twitter"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

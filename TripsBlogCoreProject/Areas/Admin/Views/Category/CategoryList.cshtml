@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+@{
+    ViewData["Title"] = "CategoryList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="white_shd full margin_bottom_30 my-3">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2 class="text-center"> Kategori Listesi </h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kategori Adı</th>
+                        <th>Durumu</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Id</td>
+                            <td>@item.CategoryName</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <a href="/Admin/Category/CategoryUpdate/@item.Id" class="badge badge-success">
+                                    Güncelle
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Admin/Category/CategoryDelete/@item.Id" class="badge badge-danger">
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Admin/Category/CategoryAdd" class="btn btn-primary"> Kategori Ekle </a>
+        </div>
+    </div>
+</div>

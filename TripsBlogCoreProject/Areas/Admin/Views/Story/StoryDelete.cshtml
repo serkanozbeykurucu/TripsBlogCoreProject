@@ -1,0 +1,29 @@
+﻿@model EntityLayer.Concrete.OurStory
+@{
+    ViewData["Title"] = "StoryDelete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Hikaye Silme</h1>
+            <p class="card-description"> Bu alan üzerinden Hikayenizi silmek istediğinize emin misiniz? </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Hikaye Adı</label>
+                    <input type="text" class="form-control" asp-for="StoryName" placeholder="Hikaye Adı" readonly>
+                    <span asp-validation-for="StoryName" class="tex-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Hikaye Açıklama</label>
+                    <input type="text" class="form-control" asp-for="StoryDescription" placeholder="Hikaye Açıklama" readonly>
+                    <span asp-validation-for="StoryDescription" class="tex-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2">Sil</button>
+                <a href="/Admin/Story/StoryList" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>

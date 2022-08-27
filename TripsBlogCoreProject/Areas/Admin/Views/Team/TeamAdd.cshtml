@@ -1,0 +1,61 @@
+﻿@model TripsBlogCoreProject.Areas.Admin.Models.TeamAddViewModel
+@{
+    ViewData["Title"] = "TeamAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Tur Rehberi Bilgileri Güncelleme Sayfası</h1>
+            <p class="card-description"> Bu alan üzerinden tur rehberinizin bilgilerini güncelleyebilirsiniz. </p>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label>Rehber Adı</label>
+                    <input type="text" class="form-control" asp-for="FirstName" placeholder="Rehber Adı">
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Rehber Soyadı</label>
+                    <input type="text" class="form-control" asp-for="LastName" placeholder="Rehber Soyadı">
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Unvan</label>
+                    <input type="text" class="form-control" asp-for="Degree" placeholder="Unvan">
+                    <span asp-validation-for="Degree" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Özgeçmiş</label>
+                    <textarea class="form-control" asp-for="Resume" rows="4"></textarea>
+                    <span asp-validation-for="Resume" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Resim</label>
+                    <input type="file" class="form-control" asp-for="Image" placeholder="Tur Rehberi Fotoğrafı">
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCategory">Facebook Url</label>
+                    <input type="text" class="form-control" asp-for="FacebookUrl" placeholder="Facebook Url">
+                    <span asp-validation-for="FacebookUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Instagram Url</label>
+                    <input type="text" class="form-control" asp-for="InstagramUrl" placeholder="Instagram Url">
+                    <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Twitter Url</label>
+                    <input type="text" class="form-control" asp-for="TwitterUrl" placeholder="Twitter Url">
+                    <span asp-validation-for="TwitterUrl" class="text-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <input type="submit" class="btn btn-success" value="Kaydet">
+                <a href="/Admin/Team/TeamList" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+

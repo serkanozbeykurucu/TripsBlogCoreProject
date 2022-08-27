@@ -1,0 +1,63 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+
+@{
+    ViewData["Title"] = "CommentList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="white_shd full margin_bottom_30 my-3">
+    <div class="full graph_head">
+        <div class="heading1 margin_0">
+            <h2 class="text-center"> Blog Yorum Listesi </h2>
+        </div>
+    </div>
+    <div class="table_section padding_infor_info">
+        <div class="table-responsive-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kullanıcı</th>
+                        <th>Yorum</th>
+                        <th>Blog</th>
+                        <th>Tarih</th>
+                        <th>Durumu</th>
+                        <th>Sitede Gör</th>
+                        <th>Güncelle</th>
+                        <th>Sil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Id</td>
+                            <td>@item.CommentUser</td>
+                            <td>@item.CommentContent</td>
+                            <td>@item.Blog.BlogName</td>
+                            <td> @(((DateTime)item.CommentDate).ToString("dd/MM/yyyy"))</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <a href="/Blog/BlogDetails/@item.BlogId" class="badge badge-primary">
+                                    Sitede Gör
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Admin/Comment/CommentUpdate/@item.Id" class="badge badge-success">
+                                    Güncelle
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/Admin/Comment/CommentDelete/@item.Id" class="badge badge-danger">
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Admin/Comment/CommentAdd" class="btn btn-primary"> Yorum Ekle </a>
+        </div>
+    </div>
+</div>

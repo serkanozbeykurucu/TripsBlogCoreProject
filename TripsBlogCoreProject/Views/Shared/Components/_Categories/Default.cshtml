@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Category>
+<div class="categories">
+    <h3>Kategoriler</h3>
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="#">
+                @item.CategoryName
+                @*<span>@(item.Id)</span>*@
+            </a>
+        </li>
+    }
+</div>

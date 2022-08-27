@@ -1,0 +1,133 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-sm-4 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h5>Yayınlanan Blog Sayısı</h5>
+                    <div class="row">
+                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                <h2 class="mb-0">@ViewBag.BlogCount</h2>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-clipboard-text text-primary ml-auto"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h5>@ViewBag.City Hava Durumu</h5>
+                    <div class="row">
+                        <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                <h2 class="mb-0"> @ViewBag.Degree &deg</h2>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-weather-sunny text-primary ml-auto"></i>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-sm-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Bloglarım</h4>
+                    <a href="/Writer/Blog/BlogAdd" class="badge badge-outline-primary"> Blog Ekle</a>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th> Blog Adı </th>
+                                    <th> Yayınlanma Tarihi </th>
+                                    <th> Kategori </th>
+                                    <th> Durumu </th>
+                                    <th> İşlemler </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.Id
+                                        </td>
+                                        <td>
+                                            <span class="pl-2">@item.BlogName</span>
+                                        </td>
+                                        <td>  @(((DateTime)item.BlogDate).ToString("dd/MM/yyyy")) </td>
+                                        <td> @item.Category.CategoryName </td>
+                                        <td> @item.Status </td>
+                                        <td>
+                                            <a href="/Blog/BlogDetails/@item.Id" class="badge badge-outline-primary">
+                                                Sitede Gör
+                                            </a>
+                                            <a href="/Writer/Blog/BlogUpdate/@item.Id" class="badge badge-outline-success">
+                                                Güncelle
+                                            </a>
+                                            <a href="/Writer/Blog/BlogDelete/@item.Id" class="badge badge-outline-danger">
+                                                Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xl-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yazarın Son Eklenen Blogları</h4>
+                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <img src="~/@item.ImageUrl" alt="">
+                            </div>
+                        }
+                    </div>
+                    <div class="d-flex py-4">
+                        <div class="preview-list w-100">
+                            <div class="preview-item p-0">
+                                <div class="preview-thumbnail">
+                                    <img src="/@ViewBag.WriterImage" class="rounded-circle" alt="">
+                                </div>
+                                <div class="preview-item-content d-flex flex-grow">
+                                    <div class="flex-grow">
+                                        <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                            <h6 class="preview-subject">@ViewBag.Name</h6>
+                                        </div>
+                                        <p class="text-muted">Yazar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model TripsBlogCoreProject.Areas.Admin.Models.ProfileUpdateViewModel
+@{
+    ViewData["Title"] = "ProfileUpdate";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-sm-11 grid-margin stretch-card my-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center"> Admin Profil Güncelleme Sayfası</h1>
+                <p class="card-description"> Bu alan üzerinden profil bilgilerinizi güncelleyebilirsiniz. </p>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label>Adınız</label>
+                        <input type="text" class="form-control" asp-for="FirstName" placeholder="Adınız">
+                        <span asp-validation-for="FirstName" class="tex-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Soyadınız</label>
+                        <input type="text" class="form-control" asp-for="Lastname" placeholder="Soyadınız">
+                        <span asp-validation-for="Lastname" class="tex-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>E-Mail</label>
+                        <input type="text" class="form-control" asp-for="Email" placeholder="E-Mail">
+                        <span asp-validation-for="Email" class="tex-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon">
+                        <span asp-validation-for="PhoneNumber" class="tex-danger"></span>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input type="checkbox" asp-for="IsChecked" checked onclick="gizleGoster('sonuc','sonuc2')" class="form-check-input" />
+                        <label class="form-check-label"> Şifre Güncellensin mi? </label>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label id= "sonuc2"> Yeni Şifre</label>
+                        <input type="password" class="form-control" placeholder="Yeni Şifre" id= "sonuc" asp-for="Password">
+                        <span asp-validation-for="Password" class="tex-danger"></span>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                    <a href="/Admin/Profile/Index" class="btn btn-dark">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function gizleGoster(ID, ID2) {
+        var secilenID = document.getElementById(ID);
+        var secilenID2 = document.getElementById(ID2);
+        if (secilenID.style.display == "none" && secilenID2.style.display == "none") {
+            secilenID.style.display = "";
+            secilenID2.style.display = "";
+        }
+        else {
+            secilenID.style.display = "none";
+            secilenID2.style.display = "none";
+        }
+    }
+</script>

@@ -1,0 +1,31 @@
+﻿@model TripsBlogCoreProject.Areas.Admin.Models.RoleDeleteViewModel
+@{
+    ViewData["Title"] = "DeleteRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Rol Silme Alanı </h1>
+            <p class="card-description"> Bu alan üzerinden rol silebilirsiniz. </p>
+            <form class="forms-sample" method="post">
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Rol Numarası </label>
+                    <input type="text" class="form-control" placeholder="Rol Numarası" asp-for="Id">
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Rol Başlığı </label>
+                    <input type="text" class="form-control" placeholder="Rol Başlığınız" asp-for="name">
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <button type="submit" class="btn btn-primary mr-2">Sil</button>
+                <a href="/Admin/AdminRol/Index" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@using EntityLayer.Concrete
+@model List<Journey>
+@{
+    ViewData["Title"] = "JourneyList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}<div class="white_shd full margin_bottom_30 my-3">    <div class="full graph_head">        <div class="heading1 margin_0">            <h2 class="text-center"> Gezi Listesi </h2>        </div>    </div>    <div class="table_section padding_infor_info">        <div class="table-responsive-sm">            <table class="table">                <thead>                    <tr>                        <th>#</th>                        <th>Gezi Adı</th>                        <th>Açıklama</th>                        <th>Durumu</th>                        <th>Sitede Gör</th>                        <th>Güncelle</th>                        <th>Sil</th>                    </tr>                </thead>                <tbody>                    @foreach (var item in Model)
+                    {                        <tr>
+                            <td> @item.ID</td>
+                            <td>@item.JourneyName</td>
+                            <td>@item.JourneyShortDescription.Substring(0,25)...</td>                            <td>@item.Status</td>                            <td>
+                                <a href="/Default/TripsDetail/@item.ID" class="badge badge-primary">                                    Sitede Gör                                </a>                            </td>                            <td>
+                                <a href="/Admin/Journey/JourneyUpdate/@item.ID" class="badge badge-success">                                    Güncelle                                </a>                            </td>                            <td>
+                                <a href="/Admin/Journey/JourneyDelete/@item.ID" class="badge badge-danger">                                    Sil                                </a>                            </td>                        </tr>                    }                </tbody>            </table>
+            <a href="/Admin/Journey/JourneyAdd" class="btn btn-primary"> Gezi Ekle </a>        </div>    </div></div>

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "_WriterLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("/Views/_WriterLayoutPartial/_HeaderPartial.cshtml")
+<body>
+    <div class="container-scroller">
+        @await Html.PartialAsync("/Views/_WriterLayoutPartial/_SidebarPartial.cshtml")
+        <div class="container-fluid page-body-wrapper">
+            @await Html.PartialAsync("/Views/_WriterLayoutPartial/_NavbarPartial.cshtml")
+            <div class="main-panel">
+                @RenderBody()
+                @await Html.PartialAsync("/Views/_WriterLayoutPartial/_FooterPartial.cshtml")
+            </div>
+        </div>
+    </div>
+    @await Html.PartialAsync("/Views/_WriterLayoutPartial/_ScriptPartial.cshtml")
+</body>
+</html>
+

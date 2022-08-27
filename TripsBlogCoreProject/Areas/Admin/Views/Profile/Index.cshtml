@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.AppUser
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Admin Profil Görüntüleme Sayfası</h1>
+            <p class="card-description"> Bu alan üzerinden kişisel bilgilerinizi görebilirsiniz. </p>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Adınız</label>
+                    <input type="text" class="form-control" asp-for="FirstName" placeholder="Adınız" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Soyadınız</label>
+                    <input type="text" class="form-control" asp-for="LastName" placeholder="Soyadınız" readonly>
+                </div>
+                <div class="form-group">
+                    <label>E-Mail</label>
+                    <input type="text" class="form-control" asp-for="Email" placeholder="E-Mail" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Telefon</label>
+                    <input type="text" class="form-control" asp-for="PhoneNumber" placeholder="Telefon" readonly>
+                </div>
+                <a href="/Admin/Profile/ProfileUpdate/" class="btn btn-success">Güncelleme</a>
+                <a href="/Admin/Dashborad/Index" class="btn btn-dark">Vazgeç</a>
+            </form>
+        </div>
+    </div>
+</div>
+

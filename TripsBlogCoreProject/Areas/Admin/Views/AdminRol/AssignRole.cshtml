@@ -1,0 +1,38 @@
+﻿@using TripsBlogCoreProject.Areas.Admin.Models
+@model List<RoleAssignViewModel>
+@{
+    ViewData["Title"] = "AssignRole";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card my-3">
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title text-center"> Rol Silme Alanı </h1>
+            <p class="card-description"> Bu alan üzerinden rol silebilirsiniz. </p>
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <div class="form-check form-check-primary">
+                                    <input type="hidden" asp-for="@Model[i].RoleId" class="form-check-input">
+                                    <input type="hidden" asp-for="@Model[i].Name" class="form-check-input">
+                                    <input type="checkbox" asp-for="@Model[i].Exists" class="form-check-input">
+                                    <label type="checkbox" class="form-check-label" for="@Model[i].Exists">
+                                        @Model[i].Name
+                                    </label>
+                                </div>
+                            }
+                            <button class="btn btn-info btn-rounded"> Değişiklikleri Kaydet </button>
+                            <a href="/Admin/AdminRol/UserRoleList/" class="btn btn-rounded btn-primary"> Kullanıcı Rol Listesine Geri Dön!</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

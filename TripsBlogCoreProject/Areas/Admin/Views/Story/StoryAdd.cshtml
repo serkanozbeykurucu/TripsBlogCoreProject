@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.OurStory
+@{
+    ViewData["Title"] = "StoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="col-sm-11 grid-margin stretch-card my-3">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center"> Hikaye Ekleme</h1>
+                <p class="card-description"> Bu alan üzerinden Hikaye ekleyebilirsiniz. </p>
+                <form class="forms-sample" method="post">
+                    <div class="form-group">
+                        <label>Hikaye</label>
+                        <input type="text" class="form-control" asp-for="StoryName" placeholder="Hikaye">
+                        <span asp-validation-for="StoryName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Hikaye Açıklama</label>
+                        <input type="text" class="form-control" asp-for="StoryDescription" placeholder="Hikaye Açıklama">
+                        <span asp-validation-for="StoryDescription" class="text-danger"></span>
+                    </div>
+                    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <a href="/Admin/Story/StoryList" class="btn btn-dark">Vazgeç</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
