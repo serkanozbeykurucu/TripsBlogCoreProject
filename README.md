@@ -18,3 +18,4 @@ Trip Core Projesinde kullandığım araçlar;
 4) SQL
 5) MICROSOFT IDENTITY
 6) WEB API
+7) Fluent Validation
