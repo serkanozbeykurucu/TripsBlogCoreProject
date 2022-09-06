@@ -31,7 +31,7 @@ namespace TripsBlogCoreProject.Areas.Admin.Controllers
             var result = _blogManager.GetListByFilter(x => x.BlogDate == DateTime.Today && x.Status == false).
                 OrderByDescending(x=>x.Id).
                 ToList();
-            string apikey = "279ab030962429cbb21b0eaf212de199";
+            string apikey = "your api key";
             string city = "Adana";
             string apiurl = "https://api.openweathermap.org/data/2.5/weather?q="+ city+ "&mode=xml&units=metric&appid=" + apikey;
             XDocument document = XDocument.Load(apiurl);
