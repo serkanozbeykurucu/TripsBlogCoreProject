@@ -42,7 +42,7 @@ namespace TripsBlogCoreProject.Areas.Writer.Controllers
                     ViewBag.BlogCount = "";
                 }
                 
-                string apikey = "279ab030962429cbb21b0eaf212de199";
+                string apikey = "your api key";
                 string city = "Adana";
                 string apiurl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&mode=xml&units=metric&appid=" + apikey;
                 XDocument document = XDocument.Load(apiurl);
