@@ -19,3 +19,5 @@ Trip Core Projesinde kullandığım araçlar;
 5) MICROSOFT IDENTITY
 6) WEB API
 7) Fluent Validation
+
+tripcoreproject.somee.com
