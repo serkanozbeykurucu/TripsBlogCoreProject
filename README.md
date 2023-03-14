@@ -20,4 +20,4 @@ Trip Core Projesinde kullandığım araçlar;
 6) WEB API
 7) Fluent Validation
 
-<a href="tripcoreproject.somee.com"> Siteye Git </a>
+<a href="https://www.tripcoreproject.somee.com"> Siteye Git </a>
